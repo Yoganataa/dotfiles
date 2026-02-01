@@ -1,0 +1,34 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 22, /* Tinggi Compact untuk layar 1366x768 */
+    "margin-top": 2,
+    "margin-left": 5,
+    "margin-right": 5,
+    "spacing": 4,
+
+    "modules-left": [
+        "sway/workspaces",
+        "tray",
+        "sway/window",
+        "sway/mode",
+        "mpd"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "backlight",
+        "pulseaudio",
+        "custom/keyboard-layout",
+        "temperature",
+        "group/hardware",
+        "battery",
+        "network",
+        "idle_inhibitor",
+        "custom/updates", 
+        "custom/power"
+    ],
+
+    "include": ["~/.config/waybar/modules.json"]
+}

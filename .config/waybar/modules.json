@@ -1,0 +1,160 @@
+{
+    "mpd": {
+        "tooltip": true,
+        "tooltip-format": "{artist} - {album} - {title}",
+        "format": " {elapsedTime:%M:%S}",
+        "format-disconnected": "⚠",
+        "format-stopped": " Stop",
+        "on-click": "mpc toggle",
+        "state-icons": {
+            "playing": "",
+            "paused": ""
+        }
+    },
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "sway/window": {
+        "rewrite": {
+            "(.*) - Brave": "$1",
+            "(.*) - Chromium": "$1",
+            "(.*) - Kitty": ">_ $1",
+            "(.*) - Visual Studio Code": "Code - $1"
+        },
+        "separate-outputs": true,
+        "max-length": 30
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "tray": {
+        "icon-size": 13, 
+        "spacing": 4
+    },
+    "clock": {
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "month",
+            "mode-mon-col": 3,
+            "weeks-pos": "right",
+            "on-scroll": 1,
+            "on-click-right": "mode",
+            "format": {
+                "months": "<span color='#bb9af7'><b>{}</b></span>",
+                "days": "<span color='#7aa2f7'><b>{}</b></span>",
+                "weeks": "<span color='#9ece6a'><b>W{}</b></span>",
+                "weekdays": "<span color='#e0af68'><b>{}</b></span>",
+                "today": "<span background='#2ac3de' color='#1a1b26'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions": {
+            "on-click-right": "mode",
+            "on-click-forward": "tz_up",
+            "on-click-backward": "tz_down",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        },
+        "format": "{:%H:%M}",
+        "format-alt": "{:%d/%m}",
+        "interval": 60
+    },
+    "custom/system": {
+        "format": "",
+        "tooltip": false
+    },
+    "cpu": {
+        "format": " {usage}%",
+        "on-click": "kitty -e htop"
+    },
+    "memory": {
+        "format": " {percentage}%",
+        "on-click": "kitty -e htop"
+    },
+    "temperature": {
+        "critical-threshold": 80,
+        "format": " {temperatureC}°C"
+    },
+    "disk": {
+        "format": " {percentage_used}%",
+        "path": "/"
+    },
+    "group/hardware": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 300,
+            "children-class": "not-memory",
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "custom/system",
+            "disk",
+            "cpu",
+            "memory"
+        ]
+    },
+    "backlight": {
+        "format": "{icon} {percent}%",
+        "format-icons": ["", "", "", "", "", "", "", "", ""],
+        "on-scroll-down": "brightnessctl -c backlight set 5%-",
+        "on-scroll-up": "brightnessctl -c backlight set +5%"
+    },
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "network": {
+        "format": "⚠ Off",
+        "format-wifi": "  {essid}",
+        "format-ethernet": " Eth",
+        "format-disconnected": "⚠ DC",
+        "tooltip-format-wifi": " {essid} ({signalStrength}%)",
+        "max-length": 15, 
+        "on-click": "nm-connection-editor"
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{icon} {volume}%",
+        "format-muted": " Muted",
+        "format-icons": {
+            "headphones": "",
+            "handsfree": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+    "custom/updates": {
+        "format": " {}",
+        "interval": 3600,
+        "exec": "dnf check-update -q | grep -v '^$' | wc -l",
+        "exec-if": "exit 0",
+        "on-click": "kitty -e sudo dnf upgrade",
+        "signal": 8
+    },
+    "custom/power": {
+        "format": "⏻",
+        "on-click": "wlogout -p layer-shell",
+        "tooltip": false
+    },
+    "custom/keyboard-layout": {
+        "exec": "swaymsg -t get_inputs | grep -m1 'xkb_active_layout_name' | cut -d '\"' -f4",
+        "interval": 1,
+        "format": "  {}",
+        "signal": 1,
+        "tooltip": false,
+        "on-click": "~/.config/waybar/scripts/keyhint.sh"
+    }
+}

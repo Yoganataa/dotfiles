@@ -1,0 +1,14 @@
+/**
+ * Metallic dark palette
+ * Cold steel tone, low-saturation industrial UI
+ */
+
+* {
+    background:     #14171BFF;  /* steel base */
+    background-alt: #1C2128FF;  /* raised surface */
+    foreground:     #C7CCD6FF;  /* metal light reflection */
+
+    selected:       #5E6C82FF;  /* cold metallic accent */
+    active:         #2A313AFF;  /* pressed surface */
+    urgent:         #C35A5AFF;  /* warning red metal */
+}

@@ -1,0 +1,3 @@
+#!/bin/sh
+# Pastikan yad terinstall: sudo dnf install yad
+yad --title="Fedora Sway Keybindings:" --no-buttons --geometry=400x345-15-400 --list --column=key: --column=description: --column=command: "ESC" "close this app" "" "=" "modkey" "(set mod Mod4)" "+enter" "Terminal" "(kitty)" "+d" "Application Menu" "(wofi)" "+Shift+d" "Full Launcher" "(nwggrid)" "+p" "Activities" "(wofi)" "+o" "" "Open Browser" "+n" "" "Open Files" "+q" "close focused app" "(kill)" "[Shift]+Print-key" "screenshot" "(grim)" "+Shift+e" "power-menu" "(wlogout)" "+Shift+p" "open keybinding helper" "full list"

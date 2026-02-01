@@ -1,0 +1,123 @@
+@import "colors.css";
+
+* {
+    font-family: "JetBrainsMono Nerd Font", "JetBrainsMonoNL Nerd Font Mono", sans-serif;
+    font-size: 11px; /* Ukuran font scaling 1080p pada 768p */
+    font-weight: bold;
+    min-height: 0;
+    border: none;
+    border-radius: 0;
+    transition-property: background-color, color;
+    transition-duration: 0.3s;
+}
+
+window#waybar {
+    background: transparent;
+}
+
+/* --- GAYA METALLIC COMPACT --- */
+/* custom-launcher dan custom-swap sudah dihapus dari selector ini */
+#workspaces,
+#mode,
+#clock,
+#network,
+#battery,
+#backlight,
+#pulseaudio,
+#tray,
+#custom-keyboard-layout,
+#temperature,
+#idle_inhibitor,
+#custom-updates,
+#group-hardware,
+#mpd {
+    background: linear-gradient(180deg, #dce0e3 0%, #bdc3c7 100%);
+    color: #2c3e50;
+    border-radius: 6px;
+    padding: 0px 8px; 
+    margin: 2px 2px;
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+/* --- TWEAK PER MODUL --- */
+
+/* Workspaces */
+#workspaces button {
+    padding: 0 4px;
+    color: #7f8c8d;
+    background: transparent;
+    box-shadow: none;
+}
+
+#workspaces button.focused {
+    background: #95a5a6;
+    color: #ffffff;
+    border-radius: 4px;
+    box-shadow: inset 0 0 3px rgba(0,0,0,0.2);
+}
+
+#workspaces button:hover {
+    background: #ecf0f1;
+    color: #2c3e50;
+}
+
+/* Hardware Group Styling */
+#group-hardware {
+    /* Group container tetap metallic */
+    padding: 0px 4px; 
+}
+
+/* Hardware Items Normal State */
+#cpu, #memory, #disk, #custom-system {
+    background: transparent;
+    color: #2c3e50;
+    padding: 0 5px;
+    margin: 0;
+    box-shadow: none;
+    font-size: 10px;
+    border-radius: 4px; /* Radius untuk hover state */
+}
+
+/* --- HOVER EFFECT HARDWARE (YANG DIMINTA) --- */
+#cpu:hover, #memory:hover, #disk:hover {
+    color: #ffffff; /* Font jadi Putih */
+    background: #7f8c8d; /* Background jadi Abu Gelap agar putih terlihat */
+    box-shadow: inset 0 0 3px rgba(0,0,0,0.2);
+}
+
+/* Power Button */
+#custom-power {
+    background: linear-gradient(180deg, #ed8796 0%, #d20f39 100%);
+    color: white;
+    border-radius: 6px;
+    padding: 0px 10px;
+    margin: 2px 2px;
+}
+
+/* Window Title */
+#window {
+    background: rgba(220, 224, 227, 0.6);
+    color: #2c3e50;
+    border-radius: 6px;
+    padding: 0px 10px;
+    margin: 2px 2px;
+    font-size: 10px;
+}
+
+/* Tray */
+#tray {
+    background: #aab7b8;
+    padding: 0px 8px;
+}
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+}
+
+/* Animations */
+#network:active, #battery:active, #pulseaudio:active {
+    background: #95a5a6;
+    box-shadow: inset 0 0 3px rgba(0,0,0,0.3);
+}
