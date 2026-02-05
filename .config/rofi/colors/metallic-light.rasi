@@ -1,0 +1,15 @@
+/**
+ * .config/rofi/colors/metallic-light.rasi
+ *
+ * Metallic Light Palette
+ * Based on Waybar style (Silver/Grey/Dark Blue)
+ **/
+
+* {
+    background:     #ecf0f1FF;
+    background-alt: #dce0e3FF;
+    foreground:     #2c3e50FF;
+    selected:       #bdc3c7FF;
+    active:         #7f8c8dFF;
+    urgent:         #c0392bFF;
+}

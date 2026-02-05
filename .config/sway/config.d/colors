@@ -1,42 +1,47 @@
-######################################################################
-#        ______          __     ____                 __  ______      #
-#       / ____/___  ____/ /__  / __ \____  _____    / / / / __ \     #
-#      / /   / __ \/ __  / _ \/ / / / __ \/ ___/   / /_/ / / / /     #
-#     / /___/ /_/ / /_/ /  __/ /_/ / /_/ (__  )   / __  / /_/ /      #
-#     \____/\____/\__,_/\___/\____/ .___/____/   /_/ /_/\___\_\      #
-#                                /_/                                 #
-######################################################################
+# .config/sway/config.d/colors
 
 #################################################
-#                Colors                         #
+#           Light Metallic Color Palette        #
+#           Matches Waybar Configuration        #
 #################################################
 
-# Backgrounds
-set $base      "#1a1b26"
-set $mantle    "#16161e"
-set $crust     "#0C0E14"
+# Backgrounds (Metallic/Silver tones)
+# base: Light grey/white for background
+set $base       "#ecf0f1"
+# mantle: Slightly darker grey for inactive elements
+set $mantle     "#bdc3c7"
+# crust: Darker border/edge
+set $crust      "#95a5a6"
 
 # Surface panels
-set $surface2  "#545c7e"
-set $surface1  "#414868"
-set $surface0  "#3b4261"
+set $surface2   "#95a5a6"
+set $surface1   "#7f8c8d"
+set $surface0   "#bdc3c7"
 
 # Overlays
-set $overlay2  "#737aa2"
-set $overlay1  "#545c7e"
-set $overlay0  "#565f89"
+set $overlay2   "#7f8c8d"
+set $overlay1   "#95a5a6"
+set $overlay0   "#bdc3c7"
 
-# Text
-set $text      "#c0caf5"
-set $subtext1  "#a9b1d6"
-set $subtext0  "#a9b1d6"
+# Text (Dark Slate / Navy for contrast against light background)
+set $text       "#2c3e50"
+set $subtext1   "#34495e"
+set $subtext0   "#576574"
 
-# Accents
-set $red       "#f7768e"
-set $peach     "#ff9e64"
-set $green     "#9ece6a"
-set $teal      "#73daca"
-set $sky       "#89ddff"
-set $sapphire  "#7dcfff"
-set $blue      "#7aa2f7"
-set $magenta   "#bb9af7"
+# Accents (Muted/Metallic colors)
+set $red        "#c0392b"
+set $peach      "#d35400"
+set $green      "#27ae60"
+set $teal       "#16a085"
+set $sky        "#2980b9"
+set $sapphire   "#2980b9"
+set $blue       "#2980b9"
+set $magenta    "#8e44ad"
+
+# Window decorations:    border     background text   indicator  child-border
+client.focused           $surface1  $base      $text  $blue      $blue
+client.focused_inactive  $mantle    $base      $text  $mantle    $mantle
+client.unfocused         $mantle    $base      $text  $mantle    $mantle
+client.urgent            $red       $base      $red   $red       $red
+client.placeholder       $base      $base      $text  $base      $base
+client.background        $base

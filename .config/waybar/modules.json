@@ -68,11 +68,11 @@
     },
     "cpu": {
         "format": " {usage}%",
-        "on-click": "kitty -e htop"
+        "on-click": "kitty -e btop"
     },
     "memory": {
         "format": " {percentage}%",
-        "on-click": "kitty -e htop"
+        "on-click": "kitty -e btop"
     },
     "temperature": {
         "critical-threshold": 80,
@@ -113,12 +113,13 @@
         "format-icons": ["", "", "", "", ""]
     },
     "network": {
+        "interval": 1,
         "format": "⚠ Off",
-        "format-wifi": "  {essid}",
+        "format-wifi": "  {signalStrength}%",
         "format-ethernet": " Eth",
         "format-disconnected": "⚠ DC",
-        "tooltip-format-wifi": " {essid} ({signalStrength}%)",
-        "max-length": 15, 
+        "tooltip-format-wifi": "{essid} ↓{bandwidthDownBytes} ↑{bandwidthUpBytes}",
+        "max-length": 10, 
         "on-click": "nm-connection-editor"
     },
     "pulseaudio": {
@@ -139,7 +140,7 @@
     "custom/updates": {
         "format": " {}",
         "interval": 3600,
-        "exec": "dnf check-update -q | grep -v '^$' | wc -l",
+        "exec": "sudo dnf check-update -q | grep -v '^$' | wc -l",
         "exec-if": "exit 0",
         "on-click": "kitty -e sudo dnf upgrade",
         "signal": 8
